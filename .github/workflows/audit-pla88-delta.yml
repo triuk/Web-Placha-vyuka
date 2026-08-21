@@ -1,0 +1,55 @@
+name: Audit PLA88 delta
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - name: Compare current manifest with original report dataset
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import csv, json, re
+          from pathlib import Path
+
+          manifest=list(csv.DictReader(open('archive/manifest.csv',encoding='utf-8')))
+          current={r['version'] for r in manifest if r['kind']=='version' and r['pla88']=='True'}
+          txt=Path('data.js').read_text(encoding='utf-8')
+          old=set(re.findall(r'\[\"([^\"]+/[^\"]+)\",', txt))
+          extra=sorted(current-old)
+          missing=sorted(old-current)
+          out=[
+              f'original_report_versions={len(old)}',
+              f'current_pla88_versions={len(current)}',
+              'extra=' + (','.join(extra) if extra else '-'),
+              'missing=' + (','.join(missing) if missing else '-'),
+          ]
+          Path('archive/pla88-delta.txt').write_text('\n'.join(out)+'\n',encoding='utf-8')
+          print('\n'.join(out))
+          if len(old)!=105:
+              raise SystemExit(f'Expected 105 versions in original data.js, got {len(old)}')
+          if missing:
+              raise SystemExit(f'Original PLA88 versions disappeared: {missing}')
+          if len(current)!=106 or len(extra)!=1:
+              raise SystemExit(f'Expected exactly one new PLA88 version; extra={extra}')
+          PY
+      - name: Commit audit file
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add archive/pla88-delta.txt
+          git commit -m "Record PLA88 archive delta"
+          git push origin HEAD:${{ github.head_ref }}
