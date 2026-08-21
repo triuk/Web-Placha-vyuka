@@ -1046,7 +1046,7 @@
     "url": "https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=9360-0014%2F02&locale=cs",
     "file": "archive/versions/version_9360-0014_02.html",
     "size": 174861,
-    "sha256": "dac1bce74666f25e87a37e3b0859ef8f69fb010ea2795190fb6186db05e8bf92",
+    "sha256": "0bb0dc7ff5ebcda0a2e59f5f957405972417e797a924ff43c0d22c8dbc4ed926",
     "pla88": true
   },
   {
@@ -1146,7 +1146,7 @@
     "url": "https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=9360-0120%2F05&locale=cs",
     "file": "archive/versions/version_9360-0120_05.html",
     "size": 173746,
-    "sha256": "0176c704aa7679413d85afb58554324aef2dfc2e5b65084d9353735fa8d781ce",
+    "sha256": "53afd9e5b726b59d1dd951602059f7b47036ca0dc2762a1b77a9f8d24d4714ea",
     "pla88": true
   },
   {
@@ -1196,7 +1196,7 @@
     "url": "https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=9360-0125%2F05&locale=cs",
     "file": "archive/versions/version_9360-0125_05.html",
     "size": 174987,
-    "sha256": "cd1f31693519c0ddcf24ab3645af1080d6ccc9b1225bb6b3a79e374667d1b6ed",
+    "sha256": "650dcb5d0f9db3a7152cc0663616fd4dfb29412d69df722d06741f22b337fdb6",
     "pla88": false
   },
   {
@@ -1256,7 +1256,7 @@
     "url": "https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=9360-0131%2F06&locale=cs",
     "file": "archive/versions/version_9360-0131_06.html",
     "size": 174594,
-    "sha256": "4bd168dc810a2f9b2ae7daaf3c128c63c1c826a3423693b641955d801ae55ad4",
+    "sha256": "0f9ee6451bcc8f2f46a7e4a1d623492dc5d40cd4eb7cf7f4f3f59283ab51fd69",
     "pla88": false
   },
   {
@@ -1286,7 +1286,7 @@
     "url": "https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=9360-0132%2F03&locale=cs",
     "file": "archive/versions/version_9360-0132_03.html",
     "size": 178020,
-    "sha256": "2f19a9ed044831ad328a9d9cb3dbe02801840ec2b3e6c339e8b0b1759761a8b0",
+    "sha256": "92a28c4e87a70fae49e987192c52ac70e22b1ae21dadc8426303169fcaa233de",
     "pla88": false
   },
   {
@@ -1296,7 +1296,7 @@
     "url": "https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=9360-0132%2F04&locale=cs",
     "file": "archive/versions/version_9360-0132_04.html",
     "size": 169175,
-    "sha256": "92b36eea212941ee42e514bc0c23cf4ac7e3bdcfcb5453a3b74c00a25d20f702",
+    "sha256": "101cb2947b059894135dbc8f9de0a48bb153690f5c2a8bb743cbdf0d95daf499",
     "pla88": true
   },
   {
@@ -1306,7 +1306,7 @@
     "url": "https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=9360-0132%2F05&locale=cs",
     "file": "archive/versions/version_9360-0132_05.html",
     "size": 175213,
-    "sha256": "a682d709c74160d1df0a9253e5287cb6431ed0429963b5748842e3ca8f049ec6",
+    "sha256": "ea909dcf6bae24cbfc6d7e689d07845708d404049c3b52d52b13bfb76ee5fb3c",
     "pla88": false
   },
   {
@@ -1326,7 +1326,7 @@
     "url": "https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=9360-0135%2F02&locale=cs",
     "file": "archive/versions/version_9360-0135_02.html",
     "size": 175836,
-    "sha256": "a5c23db61a440b236016239dc2202faa2b9b4f657633150600366229fe163e25",
+    "sha256": "db88c85054fb7bc1f76cc9ca9eb5277721db313f7faeefddd919cc0345b64d85",
     "pla88": true
   },
   {
@@ -1346,7 +1346,7 @@
     "url": "https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=9360-0135%2F04&locale=cs",
     "file": "archive/versions/version_9360-0135_04.html",
     "size": 175249,
-    "sha256": "f27fc7d9f80c11941f129c6f5e96ae467d70b47d5bc38dfa94d12c35d8df7bf2",
+    "sha256": "18f64bacc388d7ef2e8de1db5fa18eb628344b98293e7bc28d7b6d73068e8c17",
     "pla88": false
   },
   {
@@ -1426,7 +1426,7 @@
     "url": "https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=9360-0146%2F04&locale=cs",
     "file": "archive/versions/version_9360-0146_04.html",
     "size": 175937,
-    "sha256": "fb9320210fdcaa9645b597585d483a649527b8aea11221bbff02222e398d3423",
+    "sha256": "768a209c5450f7431de289943dd62ffba8789e275c0558d7e2cd45d5b6fb7bc2",
     "pla88": true
   },
   {
@@ -1436,7 +1436,7 @@
     "url": "https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=9360-0146%2F05&locale=cs",
     "file": "archive/versions/version_9360-0146_05.html",
     "size": 176700,
-    "sha256": "780a9819cfd9f47d36b686937b9e3a170d0c05f2655ff3042c2b37adba524db5",
+    "sha256": "5b6c13a98b37bf6050024e20d6c3b874c011c3dc6d25c24a7007461eb480665e",
     "pla88": false
   },
   {
@@ -1486,7 +1486,7 @@
     "url": "https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=9360-0153%2F04&locale=cs",
     "file": "archive/versions/version_9360-0153_04.html",
     "size": 172855,
-    "sha256": "ec928fdfa4e3fec861068508794f7d181841ee9e218af4bbbe79bc9e19b7a124",
+    "sha256": "486aeae710f9571ed3b40e7d0847f662d827a1b1cf8e8b6435ebf5946d3e9949",
     "pla88": true
   },
   {
@@ -1506,7 +1506,7 @@
     "url": "https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=9360-0153%2F06&locale=cs",
     "file": "archive/versions/version_9360-0153_06.html",
     "size": 172953,
-    "sha256": "8c9d1f3b399627aefce0bcb525c05acf2e6118556233c1e988a4ecf5f93509e9",
+    "sha256": "82e492643f9a2cf611e8e88f5035c80d76a731239fa68e78ded00e44a3a81f24",
     "pla88": true
   },
   {
@@ -1566,7 +1566,7 @@
     "url": "https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=9360-0182%2F02&locale=cs",
     "file": "archive/versions/version_9360-0182_02.html",
     "size": 174887,
-    "sha256": "097864bdf6732f3150656b69f0d05c773e582be48072b6e234fe5ae1541d90bb",
+    "sha256": "e413a80e4dbc2e94f617c38b3723d32a8a12e58ee79e89bd02ccedb9b538e4ec",
     "pla88": true
   },
   {
@@ -1586,7 +1586,7 @@
     "url": "https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=9360-0191%2F02&locale=cs",
     "file": "archive/versions/version_9360-0191_02.html",
     "size": 176369,
-    "sha256": "59ec4411297905504e8acc67385faf9553c7f8b33bee50996b4849baa0d77019",
+    "sha256": "37c77e37bd8863837f440b4e64cff12bcd2cf79c4e9995e9339d71ff15eecd56",
     "pla88": true
   },
   {
@@ -1606,7 +1606,7 @@
     "url": "https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=9360-0207%2F01&locale=cs",
     "file": "archive/versions/version_9360-0207_01.html",
     "size": 206749,
-    "sha256": "e9218a73a03850dea2578d8d6484f2d9ffae7d5885e9ddaa42c0547282db8431",
+    "sha256": "3d69ddf797a3bee70afa6ad58b839c0065e09a9af9487373f495bc44e65c01bc",
     "pla88": true
   },
   {
@@ -1616,7 +1616,7 @@
     "url": "https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=9360-0207%2F02&locale=cs",
     "file": "archive/versions/version_9360-0207_02.html",
     "size": 176065,
-    "sha256": "54492a3baf4a1fa9eec12752ed42792c041f54383903956422098e7ea387f0c2",
+    "sha256": "a5bb934229d8c391bf1ec88789af18185240cf003ba99c87929936862e64e6b6",
     "pla88": true
   },
   {
