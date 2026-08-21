@@ -25,11 +25,12 @@ Audit: `archive/pla88-delta.txt`; kontrolní souhrn: `archive/report-build.txt`.
 Ve `sources/` jsou uloženy:
 
 - původní seznam 54 Edison URL `Vsechny-predmety.txt`,
+- **čtyři byte-for-byte originální oficiální exporty Edison** v `sources/official-edison-exports/` (`subject_list_platne.pdf/.xls` a `subject_list_vsechny.pdf/.xls`),
 - textový souhrn exportu „Platné a budoucí“ (14 předmětů),
 - textový souhrn exportu „Všechny“ (54 předmětů),
 - SHA-256 pěti původních vstupních souborů.
 
-Originální PDF/XLS exporty nebylo možné z Google Drive stáhnout přímo na GitHub runner bez autentizace; nejsou proto vydávány za archivované binární kopie. Jejich obsahově podstatný seznam a filtry jsou zachovány v textových souhrnech a jejich originální kontrolní součty v `sources/source-files.sha256`.
+Originální PDF/XLS byly převzaty z připojeného Google Drive přes autorizované API. Před uložením na GitHub byly ověřeny proti původním SHA-256; nejde o převod ani nově vygenerovaný export.
 
 ## Interpretace
 
