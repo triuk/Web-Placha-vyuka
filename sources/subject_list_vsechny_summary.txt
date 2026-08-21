@@ -1,0 +1,64 @@
+Zdroj: oficiální Edison export subject_list_vsechny.pdf/.xls
+Datum a čas tisku: 21.08.2026 12:25:22
+Filtr: Vyučující = PLA88
+Verze v SP: Všechny
+Počet předmětů: 54
+
+542-0520	Chemické procesy
+546-0320	Kontaminanty životního prostředí
+546-0371	Biochemie
+546-0456	Biotechnologie plastů
+546-0462	Polutanty v ŽP
+615-0401	Oborový seminář
+615-0807	Diplomové praktikum
+615-0810	Předdiplomní praxe-seminář
+615-0815	Diplomové praktikum
+617-1401	Oborový seminář
+617-1807	Diplomové praktikum
+617-1810	Předdiplomní praxe-seminář
+617-1815	Diplomové praktikum
+730-0004	Biochemie
+730-0005	Chemie
+730-0014	Analytická chemie odpadních materiálů
+730-0015	Instrumentální metody analýzy
+730-0102	Úvod do laboratorních cvičení z chemie
+730-0106	Základní výpočty v chemii
+730-0120	Chemie III - Organická a makromolekulární chemie
+730-0121	Laboratorní cvičení z organické chemie
+730-0125	Systém managementu kvality v laboratořích
+730-0135	Laboratorní cvičení k bakalářské práci I
+730-0136	Laboratorní cvičení k bakalářské práci II
+730-0146	Měření k diplomové práci I
+730-0153	Měření k diplomové práci II
+730-0154	Měření k diplomové práci III
+9350-3021	Heterogenní katalýza a fotokatalýza
+9360-0002	Polutanty životního prostředí
+9360-0003	Biotechnologie plastů
+9360-0004	Biochemie
+9360-0005	Chemie
+9360-0014	Analytická chemie odpadních materiálů
+9360-0015	Instrumentální metody analýzy
+9360-0106	Základní výpočty v chemii
+9360-0120	Organická a makromolekulární chemie
+9360-0125	Systém managementu kvality v laboratořích
+9360-0131	Experimentální metody a nástroje pro nanotechnologie I - chemické
+9360-0132	Laboratorní cvičení z experimentálních metod studia nanomateriálů I
+9360-0135	Laboratorní cvičení k bakalářské práci I
+9360-0136	Laboratorní cvičení k bakalářské práci II
+9360-0146	Měření k diplomové práci I
+9360-0153	Měření k diplomové práci II
+9360-0154	Měření k diplomové práci III
+9360-0182	Makromolekulární chemie
+9360-0191	Vybrané kapitoly z chemie
+9360-0205	Hybridní organo-anorganické nanostruktury
+9360-0207	Metody organické analýzy pro charakterizaci nanostrukturovaných materiálů
+9360-0227	Metody charakterizace nanostruktur
+9360-0233	Nanomateriály pro medicínské a farmaceutické aplikace
+9360-0234	Metody přípravy nanomateriálů na bázi organických látek
+9360-0235	Modifikace a funkcionalizace povrchu uhlíkatých nanomateriálů
+9360-0236	Nanotechnologie pro životní prostředí a udržitelný rozvoj
+9360-0903	Metody instrumentální analýzy II.
+
+Kontrolní součty originálních exportů:
+subject_list_vsechny.pdf  7dc3d38037927e3ebcbc563100ed4c75211f249fed40d7a56a898f51a3e5c4b1
+subject_list_vsechny.xls  7b4c0cbcbc915232c353223ee3ddc1a24ffe1620c747958b65a107e8481b8558
