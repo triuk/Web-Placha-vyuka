@@ -1,0 +1,26 @@
+name: Cleanup merged audit branch
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v6
+      - name: Delete merged audit branch
+        run: git push origin --delete consistency-audit
+      - name: Remove this one-time workflow
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm .github/workflows/cleanup-audit-branch.yml
+          git commit -m 'Remove one-time audit branch cleanup'
+          git push origin main
