@@ -1,0 +1,59 @@
+name: Materialize official Edison exports
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Reconstruct and verify official Edison exports
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .official-export-transport/part-* | base64 -d > /tmp/official-edison-exports.tar.xz
+          echo 'd3d23f56cc401769d355e70f51ee9da5304011ec84a9a8af06c9fba6b046fa43  /tmp/official-edison-exports.tar.xz' | sha256sum -c -
+          mkdir -p /tmp/edison-export-unpack
+          tar -xJf /tmp/official-edison-exports.tar.xz -C /tmp/edison-export-unpack
+          src=/tmp/edison-export-unpack/official_export_pack
+          echo 'c039116a78a8fcd888f9c39f154bc2b2d4b485a3cd23cf1aabef48606719efea  '$src'/subject_list_platne.pdf' | sha256sum -c -
+          echo '7dc3d38037927e3ebcbc563100ed4c75211f249fed40d7a56a898f51a3e5c4b1  '$src'/subject_list_vsechny.pdf' | sha256sum -c -
+          echo 'd00496f926f53ca6d826d3cc2969b93222b2236ba4a82841c532ace51d45f13f  '$src'/subject_list_platne.xls' | sha256sum -c -
+          echo '7b4c0cbcbc915232c353223ee3ddc1a24ffe1620c747958b65a107e8481b8558  '$src'/subject_list_vsechny.xls' | sha256sum -c -
+          mkdir -p sources/official-edison-exports
+          cp "$src"/subject_list_platne.pdf sources/official-edison-exports/
+          cp "$src"/subject_list_vsechny.pdf sources/official-edison-exports/
+          cp "$src"/subject_list_platne.xls sources/official-edison-exports/
+          cp "$src"/subject_list_vsechny.xls sources/official-edison-exports/
+          cat > sources/official-edison-exports/README.md <<'EOF'
+          # Official Edison exports
+
+          Original byte-for-byte exports produced by the VSB-TUO Edison system on 2026-08-21 for instructor `PLA88`.
+
+          - `subject_list_platne.pdf` / `.xls`: **Verze v SP: Platné a budoucí**, **Zobrazit verze: Všechny**, **Vyučující: PLA88**; PDF print timestamp 21.08.2026 12:21:45.
+          - `subject_list_vsechny.pdf` / `.xls`: **Verze v SP: Všechny**, **Zobrazit verze: Všechny**, **Vyučující: PLA88**; PDF print timestamp 21.08.2026 12:25:22.
+
+          SHA-256 values are recorded in `../source-files.sha256` and were verified before committing these files.
+          EOF
+
+      - name: Commit verified binary originals
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add sources/official-edison-exports
+          git rm -r .official-export-transport .github/workflows/materialize-official-exports.yml
+          git commit -m 'Archive official Edison PDF/XLS exports'
+          git push origin HEAD:${{ github.head_ref }}
