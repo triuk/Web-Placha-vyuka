@@ -1,0 +1,24 @@
+Zdroj: oficiální Edison export subject_list_platne.pdf/.xls
+Datum a čas tisku: 21.08.2026 12:21:45
+Filtr: Vyučující = PLA88
+Verze v SP: Platné a budoucí
+Počet předmětů: 14
+
+542-0520	Chemické procesy
+9350-3021	Heterogenní katalýza a fotokatalýza
+9360-0106	Základní výpočty v chemii
+9360-0120	Organická a makromolekulární chemie
+9360-0125	Systém managementu kvality v laboratořích
+9360-0182	Makromolekulární chemie
+9360-0191	Vybrané kapitoly z chemie
+9360-0205	Hybridní organo-anorganické nanostruktury
+9360-0207	Metody organické analýzy pro charakterizaci nanostrukturovaných materiálů
+9360-0233	Nanomateriály pro medicínské a farmaceutické aplikace
+9360-0234	Metody přípravy nanomateriálů na bázi organických látek
+9360-0235	Modifikace a funkcionalizace povrchu uhlíkatých nanomateriálů
+9360-0236	Nanotechnologie pro životní prostředí a udržitelný rozvoj
+9360-0903	Metody instrumentální analýzy II.
+
+Kontrolní součty originálních exportů:
+subject_list_platne.pdf  c039116a78a8fcd888f9c39f154bc2b2d4b485a3cd23cf1aabef48606719efea
+subject_list_platne.xls  d00496f926f53ca6d826d3cc2969b93222b2236ba4a82841c532ace51d45f13f
