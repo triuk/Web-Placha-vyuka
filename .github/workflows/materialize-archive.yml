@@ -1,0 +1,53 @@
+name: Materialize Edison archive
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Reconstruct and verify transport archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -d .transport
+          cat .transport/part-*.b64 > /tmp/placha-archive.b64
+          base64 --decode /tmp/placha-archive.b64 > /tmp/placha-archive.tar.xz
+          xz --test /tmp/placha-archive.tar.xz
+          tar -tJf /tmp/placha-archive.tar.xz | head -40 || true
+      - name: Materialize normal repository files
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/placha-extract
+          tar -xJf /tmp/placha-archive.tar.xz -C /tmp/placha-extract
+          rsync -a /tmp/placha-extract/ ./
+          test -f archive/manifest.json
+          test -d archive/subjects
+          test -d archive/versions
+          test "$(find archive/subjects -type f -name 'subject_*.html' | wc -l)" -eq 54
+          test "$(find archive/versions -type f -name 'version_*.html' | wc -l)" -eq 122
+      - name: Commit materialized archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- archive sources
+          for f in index.html data.js Placha_versions_verified.csv README.md verify_archive.py; do
+            if [ -e "$f" ]; then git add -- "$f"; fi
+          done
+          git rm -r -- .transport
+          git commit -m "Materialize verified Edison offline archive"
+          git push origin HEAD:main
