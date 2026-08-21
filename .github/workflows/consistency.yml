@@ -17,4 +17,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Run project audit
-        run: python3 scripts/audit_consistency.py
+        run: python3 scripts/audit_project.py
