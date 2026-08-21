@@ -1,0 +1,32 @@
+name: Verify archive transport
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Verify transport and archive contents
+        shell: bash
+        run: |
+          set -euxo pipefail
+          ls -lh .transport
+          cat .transport/part-*.b64 > /tmp/archive.b64
+          base64 --decode /tmp/archive.b64 > /tmp/archive.tar.xz
+          ls -lh /tmp/archive.tar.xz
+          xz --test /tmp/archive.tar.xz
+          mkdir /tmp/out
+          tar -xJf /tmp/archive.tar.xz -C /tmp/out
+          find /tmp/out -maxdepth 2 -type f | sort | head -80
+          test -f /tmp/out/archive/manifest.json
+          test "$(find /tmp/out/archive/subjects -type f -name 'subject_*.html' | wc -l)" -eq 54
+          test "$(find /tmp/out/archive/versions -type f -name 'version_*.html' | wc -l)" -eq 122
+          echo "Archive transport verified: 54 subjects + 122 versions."
