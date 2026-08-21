@@ -1,0 +1,52 @@
+name: Finalize official export links
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - name: Update report and README
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          old='<a href="sources/subject_list_platne_summary.txt">Export: platné a budoucí</a><a href="sources/subject_list_vsechny_summary.txt">Export: všechny</a><a href="sources/source-files.sha256">SHA-256 originálních exportů</a>'
+          new='<a href="sources/official-edison-exports/subject_list_platne.pdf">Oficiální export: platné (PDF)</a><a href="sources/official-edison-exports/subject_list_platne.xls">Oficiální export: platné (XLS)</a><a href="sources/official-edison-exports/subject_list_vsechny.pdf">Oficiální export: všechny (PDF)</a><a href="sources/official-edison-exports/subject_list_vsechny.xls">Oficiální export: všechny (XLS)</a><a href="sources/subject_list_platne_summary.txt">Textový souhrn: platné</a><a href="sources/subject_list_vsechny_summary.txt">Textový souhrn: všechny</a><a href="sources/source-files.sha256">SHA-256 originálních exportů</a>'
+          assert old in s
+          s=s.replace(old,new,1)
+          old2='<h2>Zdrojové podklady</h2><p>Na GitHubu je zachován původní seznam 54 URL, obsahové souhrny obou Edison exportů (14 „Platné a budoucí“ a 54 „Všechny“) a SHA-256 originálních PDF/XLS. Přímý binární import PDF/XLS z Drivu GitHub runner odmítl kvůli autentizaci; web ani důkazní raw HTML archiv na těchto binárních souborech nezávisí.</p>'
+          new2='<h2>Zdrojové podklady</h2><p>Ve <code>sources/official-edison-exports/</code> jsou uloženy čtyři původní oficiální PDF/XLS exporty systému Edison z 21. 8. 2026. Byly převzaty byte-for-byte přes autorizované Google Drive API a jejich SHA-256 byly před uložením na GitHub ověřeny proti původním kontrolním součtům. Zachovány jsou také textové souhrny exportů a původní seznam 54 Edison URL.</p>'
+          assert old2 in s
+          p.write_text(s.replace(old2,new2,1),encoding='utf-8')
+
+          p=Path('README.md')
+          s=p.read_text(encoding='utf-8')
+          old='''Ve `sources/` jsou uloženy:\n\n- původní seznam 54 Edison URL `Vsechny-predmety.txt`,\n- textový souhrn exportu „Platné a budoucí“ (14 předmětů),\n- textový souhrn exportu „Všechny“ (54 předmětů),\n- SHA-256 pěti původních vstupních souborů.\n\nOriginální PDF/XLS exporty nebylo možné z Google Drive stáhnout přímo na GitHub runner bez autentizace; nejsou proto vydávány za archivované binární kopie. Jejich obsahově podstatný seznam a filtry jsou zachovány v textových souhrnech a jejich originální kontrolní součty v `sources/source-files.sha256`.'''
+          new='''Ve `sources/` jsou uloženy:\n\n- původní seznam 54 Edison URL `Vsechny-predmety.txt`,\n- **čtyři byte-for-byte originální oficiální exporty Edison** v `sources/official-edison-exports/` (`subject_list_platne.pdf/.xls` a `subject_list_vsechny.pdf/.xls`),\n- textový souhrn exportu „Platné a budoucí“ (14 předmětů),\n- textový souhrn exportu „Všechny“ (54 předmětů),\n- SHA-256 pěti původních vstupních souborů.\n\nOriginální PDF/XLS byly převzaty z připojeného Google Drive přes autorizované API. Před uložením na GitHub byly ověřeny proti původním SHA-256; nejde o převod ani nově vygenerovaný export.'''
+          assert old in s
+          p.write_text(s.replace(old,new,1),encoding='utf-8')
+          PY
+      - name: Commit final documentation
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html README.md
+          git rm .github/workflows/finalize-official-exports.yml
+          git commit -m 'Link official Edison exports from report'
+          git push origin HEAD:${{ github.head_ref }}
