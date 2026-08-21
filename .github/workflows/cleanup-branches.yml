@@ -1,0 +1,40 @@
+name: Cleanup obsolete branches
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Delete obsolete remote branches
+        shell: bash
+        run: |
+          set -euo pipefail
+          git push origin --delete \
+            archive-official-edison-exports \
+            deploy-pages \
+            diagnose-archive-transport \
+            materialize-edison-archive \
+            migrate-drive-archive-to-github \
+            pages-redeploy
+
+      - name: Remove this one-time workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm .github/workflows/cleanup-branches.yml
+          git commit -m 'Remove one-time branch cleanup workflow'
+          git push origin main
